@@ -2,473 +2,401 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#07071a">
-    <meta name="description" content="A special birthday surprise for Tashfin Mira, made with love by Chisty.">
+  <meta
+    name="description"
+    content="A special birthday surprise made with love for Tashfin Mira."
+  >
+  <meta name="theme-color" content="#100b18">
 
-    <title>Tashfin Mira 🎂 | Birthday Surprise</title>
+  <title>Happy Birthday, Tashfin Mira! 🎂</title>
 
-    <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;600;700&display=swap"
-        rel="stylesheet"
-    >
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Script runs after HTML parsing -->
+  <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <!-- ========== PRELOADER ========== -->
-    <div id="preloader" aria-label="Loading birthday surprise">
-        <div class="preloader-inner">
+  <!-- =====================================
+       PRELOADER
+       ===================================== -->
 
-            <div class="pre-rings" aria-hidden="true">
-                <div class="ring r1"></div>
-                <div class="ring r2"></div>
-                <div class="ring r3"></div>
-            </div>
+  <div id="preloader" aria-label="Loading birthday surprise">
+    <h1 class="loader-title">A Little Surprise 💖</h1>
 
-            <div class="pre-emoji" aria-hidden="true">🎂</div>
-
-            <div class="pre-progress">
-                <div class="pre-bar">
-                    <div class="pre-fill" id="preFill"></div>
-                </div>
-                <p class="pre-pct" id="prePct">0%</p>
-            </div>
-
-            <p class="pre-msg">Preparing Mira's Surprise...</p>
-
-        </div>
+    <div class="loader-bar">
+      <div id="preFill"></div>
     </div>
 
-
-    <!-- ========== BACKGROUND MUSIC ========== -->
-    <audio id="bgMusic" loop preload="none">
-        <source
-            src="https://files.catbox.moe/iawcgz.mp4"
-            type="audio/mp4"
-        >
-        Your browser does not support audio playback.
-    </audio>
+    <p id="prePct">0%</p>
+  </div>
 
 
-    <!-- ========== MUSIC TOGGLE ========== -->
-    <button
-        id="musicToggle"
-        class="music-toggle"
-        type="button"
-        aria-label="Turn music on"
-        aria-pressed="false"
-        title="Toggle Music"
+  <!-- =====================================
+       BACKGROUND PARTICLES
+       ===================================== -->
+
+  <canvas id="particlesBg" aria-hidden="true"></canvas>
+
+
+  <!-- =====================================
+       BACKGROUND MUSIC
+       Replace the source URL with a valid
+       audio file if this one does not work.
+       ===================================== -->
+
+  <audio id="bgMusic" loop preload="none">
+    <source
+      src="https://files.catbox.moe/iawcgz.mp4"
+      type="audio/mp4"
     >
-        <div class="mt-icon mt-off">
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                aria-hidden="true"
-            >
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <line x1="23" y1="9" x2="17" y2="15"></line>
-                <line x1="17" y1="9" x2="23" y2="15"></line>
-            </svg>
-        </div>
+  </audio>
 
-        <div class="mt-icon mt-on" style="display:none">
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                aria-hidden="true"
-            >
-                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-            </svg>
-        </div>
-    </button>
+  <button
+    id="musicToggle"
+    class="mt-off"
+    type="button"
+    aria-label="Play background music"
+    aria-pressed="false"
+    title="Toggle music"
+  ></button>
 
 
-    <!-- ========== NAVIGATION DOTS ========== -->
-    <nav id="navDots" class="nav-dots" aria-label="Page navigation">
+  <!-- =====================================
+       PAGE NAVIGATION
+       ===================================== -->
 
-        <button class="nd active" type="button" data-index="0"
-            aria-label="Go to home" aria-current="step">
-            <span></span>
+  <nav class="nav-dots" aria-label="Birthday pages">
+    <button class="nd active" type="button" data-index="0"
+      aria-label="Page 1: Welcome" aria-current="step"></button>
+
+    <button class="nd" type="button" data-index="1"
+      aria-label="Page 2: Memories"></button>
+
+    <button class="nd" type="button" data-index="2"
+      aria-label="Page 3: Birthday message"></button>
+
+    <button class="nd" type="button" data-index="3"
+      aria-label="Page 4: Fun memories"></button>
+
+    <button class="nd" type="button" data-index="4"
+      aria-label="Page 5: Final surprise"></button>
+  </nav>
+
+
+  <!-- =====================================
+       PAGE 1 — HERO
+       ===================================== -->
+
+  <section id="secHero" class="active">
+    <div class="hero-decoration one" aria-hidden="true"></div>
+    <div class="hero-decoration two" aria-hidden="true"></div>
+
+    <div class="sec-inner">
+
+      <span class="hero-kicker">
+        ✨ A Special Day For Someone Special ✨
+      </span>
+
+      <p class="eyebrow">A little surprise made just for you</p>
+
+      <h1>
+        Happy Birthday
+        <span class="gradient-text">Tashfin Mira!</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Today is all about you, your smile, your happiness,
+        and all the beautiful memories waiting to be made. 💖
+      </p>
+
+      <p class="hero-nick">
+        To someone truly special 🎂
+      </p>
+
+      <button id="btnStart" class="btn" type="button">
+        Open Your Surprise 💌 →
+      </button>
+
+      <p class="small-note" style="margin-top: 22px;">
+        Made with love, just for you ✨
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================
+       PAGE 2 — MEMORIES
+       Replace image URLs with your own photos.
+       ===================================== -->
+
+  <section id="secMemories">
+    <div class="sec-inner">
+
+      <div class="section-heading">
+        <span class="eyebrow">Little Moments, Big Memories</span>
+
+        <h2>
+          Beautiful <span class="gradient-text">Memories 💗</span>
+        </h2>
+
+        <p>
+          Every memory has its own little story.
+          Here is to the moments that make life special.
+        </p>
+      </div>
+
+      <div class="memory-grid">
+
+        <article class="memory-card">
+          <img
+            src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=85"
+            alt="Friends enjoying a happy moment"
+            loading="lazy"
+          >
+
+          <p>
+            The little moments that turn into beautiful memories. ✨
+          </p>
+        </article>
+
+        <article class="memory-card">
+          <img
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=85"
+            alt="Friends spending time together"
+            loading="lazy"
+          >
+
+          <p>
+            Good vibes, laughter, and unforgettable days. 💕
+          </p>
+        </article>
+
+        <article class="memory-card">
+          <img
+            src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=85"
+            alt="A group sharing a happy experience"
+            loading="lazy"
+          >
+
+          <p>
+            May your life always be full of happiness and love. 🌸
+          </p>
+        </article>
+
+      </div>
+
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px;">
+        <button class="btn btn-outline" type="button" data-prev>
+          ← Previous
         </button>
 
-        <button class="nd" type="button" data-index="1"
-            aria-label="Go to memories">
-            <span></span>
+        <button class="btn" type="button" data-next>
+          Next Page →
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================
+       PAGE 3 — PERSONAL MESSAGE
+       ===================================== -->
+
+  <section id="secMessage">
+    <div class="sec-inner">
+
+      <div class="section-heading">
+        <span class="eyebrow">A Message From The Heart</span>
+
+        <h2>
+          A Little <span class="gradient-text">Letter 💌</span>
+        </h2>
+
+        <p>
+          Some words for your special day.
+        </p>
+      </div>
+
+      <div class="message-card">
+
+        <p style="color:var(--pink-light);font-size:25px;">
+          🎂 💖 🎂
+        </p>
+
+        <p id="twText"
+          data-message="Happy Birthday, Mira! 🎂💖 Tui shobshomoy happy thakish. Tor shob shopno puron hok, ar tor life bhore uthuk hasi, bhalobasha ar beautiful memories diye. Always keep smiling and never stop being the wonderful person you are. Wishing you a beautiful year ahead! ✨">
+        </p>
+
+        <p id="msgSign">
+          With lots of love 💗
+        </p>
+
+      </div>
+
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px;">
+        <button class="btn btn-outline" type="button" data-prev>
+          ← Previous
         </button>
 
-        <button class="nd" type="button" data-index="2"
-            aria-label="Go to birthday letter">
-            <span></span>
+        <button class="btn" type="button" data-next>
+          Next Page →
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================
+       PAGE 4 — FUN / ROAST
+       ===================================== -->
+
+  <section id="secFun">
+
+    <!-- Confetti canvas -->
+    <canvas id="confettiCvs" aria-hidden="true"></canvas>
+
+    <div class="sec-inner">
+
+      <div class="section-heading">
+        <span class="eyebrow">Time For Some Fun 😂</span>
+
+        <h2>
+          Birthday <span class="gradient-text">Roast Zone 🔥</span>
+        </h2>
+
+        <p>
+          Birthday te ektu moja toh banta hai! 😜
+        </p>
+      </div>
+
+      <div class="roast-grid">
+
+        <article class="roast-card">
+          <span class="emoji" aria-hidden="true">📱😂</span>
+
+          <h3>Reels Queen</h3>
+
+          <p>
+            Tui to sharadin reels e dekhos, kono to kaj nai ar tui
+            original! Bolo, kon course korsos? 😤😂
+          </p>
+        </article>
+
+        <article class="roast-card">
+          <span class="emoji" aria-hidden="true">🎂😎</span>
+
+          <h3>Birthday Special</h3>
+
+          <p>
+            Ajke tor birthday, tai ajker jonno shob dosh maaf.
+            Kal theke abar roast shuru! 🤣
+          </p>
+        </article>
+
+        <article class="roast-card">
+          <span class="emoji" aria-hidden="true">💖🥹</span>
+
+          <h3>Best Friend Energy</h3>
+
+          <p>
+            Tui amader shobcheye valo bondhu.
+            Tor moto pagli friend thakle life boring hoy na! 💗
+          </p>
+        </article>
+
+        <article class="roast-card">
+          <span class="emoji" aria-hidden="true">👑✨</span>
+
+          <h3>Queen For Today</h3>
+
+          <p>
+            Ajke tui queen, cake tor, party tor,
+            ar bill ta onno keu dik! 😂🎉
+          </p>
+        </article>
+
+      </div>
+
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px;">
+        <button class="btn btn-outline" type="button" data-prev>
+          ← Previous
         </button>
 
-        <button class="nd" type="button" data-index="3"
-            aria-label="Go to fun section">
-            <span></span>
+        <button class="btn" type="button" data-next>
+          Final Surprise → 🎁
         </button>
+      </div>
 
-        <button class="nd" type="button" data-index="4"
-            aria-label="Go to birthday finale">
-            <span></span>
+    </div>
+  </section>
+
+
+  <!-- =====================================
+       PAGE 5 — FINALE
+       ===================================== -->
+
+  <section id="secFinale">
+
+    <!-- Fireworks canvas -->
+    <canvas id="fwCvs" aria-hidden="true"></canvas>
+
+    <div class="sec-inner">
+
+      <span class="eyebrow">One Last Thing...</span>
+
+      <img
+        class="finale-image"
+        src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=700&q=85"
+        alt="Birthday celebration with balloons"
+        loading="lazy"
+      >
+
+      <h1>
+        Happy Birthday,
+        <span class="gradient-text">Mira! 🎂</span>
+      </h1>
+
+      <p>
+        May this new year of your life bring you endless smiles,
+        wonderful opportunities, beautiful memories, and all the
+        happiness you deserve. Keep shining and keep being you. 💖
+      </p>
+
+      <p style="color:var(--pink-light);font-family:var(--font-heading);font-size:clamp(20px,4vw,29px);">
+        Stay happy. Stay blessed. Stay amazing. ✨
+      </p>
+
+      <button id="btnReplay" class="btn" type="button">
+        ↻ Replay Surprise
+      </button>
+
+      <div style="margin-top:22px;">
+        <button class="btn btn-outline" type="button" data-prev>
+          ← Previous Page
         </button>
+      </div>
 
-    </nav>
+    </div>
+  </section>
 
-
-    <!-- ========== BACKGROUND PARTICLES ========== -->
-    <canvas id="particlesBg" aria-hidden="true"></canvas>
-
-
-    <!-- ==========================================================
-         SECTION 0 — HERO
-         ========================================================== -->
-    <section
-        class="sec sec-hero active"
-        data-index="0"
-        id="secHero"
-        aria-label="Birthday welcome"
-    >
-        <div class="hero-glow" aria-hidden="true"></div>
-
-        <div class="hero-body">
-
-            <p class="hero-tag ai">🎉 A Very Special Day 🎉</p>
-
-            <h1 class="hero-h1 ai">
-                <span class="hh-line">Happy Birthday</span>
-                <span class="hh-name">Mira</span>
-            </h1>
-
-            <p class="hero-nick ai">
-                Makki <em>Bhoyanok</em> 😆
-                &nbsp;|&nbsp;
-                From <em>Chisty</em> 😂
-            </p>
-
-            <p class="hero-sub ai">
-                You are one of a kind — and today,
-                the whole universe celebrates you.
-            </p>
-
-            <button
-                class="btn-primary ai"
-                id="btnStart"
-                type="button"
-            >
-                Start the Surprise
-
-                <span class="bp-arrow" aria-hidden="true">
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </span>
-            </button>
-
-        </div>
-
-        <!-- Floating birthday emojis -->
-        <div class="hero-floats" aria-hidden="true">
-            <span style="--x:8%;--dur:7s;--sz:28px">🎈</span>
-            <span style="--x:22%;--dur:9s;--sz:22px">✨</span>
-            <span style="--x:38%;--dur:6s;--sz:26px">🎁</span>
-            <span style="--x:55%;--dur:8s;--sz:30px">🎉</span>
-            <span style="--x:70%;--dur:7.5s;--sz:24px">💖</span>
-            <span style="--x:85%;--dur:10s;--sz:28px">🎂</span>
-            <span style="--x:95%;--dur:6.5s;--sz:20px">⭐</span>
-        </div>
-
-    </section>
-
-
-    <!-- ==========================================================
-         SECTION 1 — MEMORIES
-         ========================================================== -->
-    <section
-        class="sec sec-memories"
-        data-index="1"
-        id="secMemories"
-        aria-label="Mira's memories"
-    >
-        <div class="sec-inner">
-
-            <span class="stag ai">📸 Mira's Story</span>
-
-            <h2 class="stitle ai">Best Moments 💙</h2>
-
-            <p class="sdesc ai">
-                Some moments become forever. These are Mira's.
-            </p>
-
-            <div class="mem-grid">
-
-                <!-- Memory card 1 -->
-                <div class="mem-card mc-big ai">
-                    <div class="mc-img">
-                        <img
-                            src="https://i.postimg.cc/pLMVWv8g/In-Shot-20261011-010236555.jpg"
-                            alt="A special birthday memory"
-                            loading="lazy"
-                            decoding="async"
-                        >
-                    </div>
-
-                    <div class="mc-cap">
-                        <p>Cutest Criminal 🔥</p>
-                        <span>
-                            The attitude nobody asked for,
-                            but everyone needed 😎
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Memory card 2 -->
-                <div class="mem-card mc-small ai">
-                    <div class="mc-img">
-                        <img
-                            src="https://i.postimg.cc/QtTcTs4Q/In-Shot-20261011-005102390.jpg"
-                            alt="Mira, the birthday girl"
-                            loading="lazy"
-                            decoding="async"
-                        >
-                    </div>
-
-                    <div class="mc-cap">
-                        <p>The Birthday Girl 🎂</p>
-                        <span>Miraa in her natural habitat 😆</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <blockquote class="mem-quote ai">
-                "Friendship isn't about who you've known the longest.
-                It's about who walked in and never left."
-            </blockquote>
-
-            <button
-                class="btn-ghost ai"
-                type="button"
-                data-goto="2"
-            >
-                Read My Heart →
-            </button>
-
-        </div>
-    </section>
-
-
-    <!-- ==========================================================
-         SECTION 2 — BIRTHDAY LETTER
-         ========================================================== -->
-    <section
-        class="sec sec-message"
-        data-index="2"
-        id="secMessage"
-        aria-label="A birthday letter for Mira"
-    >
-        <div class="sec-inner">
-
-            <span class="stag ai">💌 From My Soul</span>
-
-            <h2 class="stitle ai">A Letter For You</h2>
-
-            <div class="msg-card glass ai">
-
-                <div class="msg-deco" aria-hidden="true">💝</div>
-
-                <div class="tw-wrap">
-                    <p
-                        id="twText"
-                        class="tw-text"
-                        aria-live="polite"
-                    ></p>
-
-                    <span class="tw-cursor" aria-hidden="true">|</span>
-                </div>
-
-                <div class="msg-sign" id="msgSign">
-                    <p>
-                        With endless love,<br>
-                        <strong>Your Eternal Friend Chisty 🌟</strong>
-                    </p>
-                </div>
-
-            </div>
-
-            <button
-                class="btn-ghost ai"
-                type="button"
-                data-goto="3"
-            >
-                Time for Fun 😂 →
-            </button>
-
-        </div>
-    </section>
-
-
-    <!-- ==========================================================
-         SECTION 3 — FUN & ROAST
-         ========================================================== -->
-    <section
-        class="sec sec-fun"
-        data-index="3"
-        id="secFun"
-        aria-label="Fun memories and friendly roasts"
-    >
-        <div class="sec-inner">
-
-            <span class="stag ai">😂 Roast + Memories</span>
-
-            <h2 class="stitle ai">The Fun Section</h2>
-
-            <div class="fun-memory glass ai">
-
-                <div class="fm-badge">🙂‍↔️ Our Memory</div>
-
-                <p class="fm-text">
-                    Onek memory ase but shera hoilo —
-                    tor shate <strong>Adda dewa</strong> 😂
-                </p>
-
-            </div>
-
-            <div class="roast-card glass ai">
-                <span class="rc-em" aria-hidden="true">📱</span>
-
-                <p>
-                    Tui to sharadin reels e dekhos, kono to kaj nai.
-                    Ar tui Original <strong>bsdk</strong>
-                    kon course korsos bole de 😤😂
-                </p>
-            </div>
-
-            <div class="roast-card glass ai">
-                <span class="rc-em" aria-hidden="true">❤️</span>
-
-                <p>
-                    But honestly, roast aside —
-                    <strong>tui amader shobcheye valo bondhu.</strong>
-                    You know that, right? 🥹
-                </p>
-            </div>
-
-        </div>
-
-        <!-- Confetti animation canvas -->
-        <canvas id="confettiCvs" aria-hidden="true"></canvas>
-
-    </section>
-
-
-    <!-- ==========================================================
-         SECTION 4 — FINALE
-         ========================================================== -->
-    <section
-        class="sec sec-finale"
-        data-index="4"
-        id="secFinale"
-        aria-label="Birthday wishes and finale"
-    >
-        <!-- Fireworks canvas -->
-        <canvas id="fwCvs" aria-hidden="true"></canvas>
-
-        <div class="sec-inner finale-body">
-
-            <!-- Final photo -->
-            <div class="fin-photo ai">
-
-                <div class="fp-glow" aria-hidden="true"></div>
-                <div class="fp-ring" aria-hidden="true"></div>
-
-                <img
-                    src="https://i.postimg.cc/pLMVWv8g/In-Shot-20261011-010236555.jpg"
-                    alt="A special photo of Mira"
-                    loading="lazy"
-                    decoding="async"
-                >
-
-            </div>
-
-            <!-- Finale heading -->
-            <h2 class="fin-title ai">
-                <span class="ft-top">You Are My</span>
-                <span class="ft-main">Friend Forever</span>
-                <span class="ft-heart" aria-hidden="true">🖤</span>
-            </h2>
-
-            <!-- Final birthday message -->
-            <div class="fin-msg glass ai">
-
-                <p>
-                    No matter where life takes us, you will
-                    <strong>always</strong> be my best friend,
-                    my brother, and my family.
-                </p>
-
-                <p class="fin-glow">
-                    Happy Birthday, Mira! 🎂🎉
-                </p>
-
-                <p class="fin-small">
-                    From your one and only <em>Mira</em>-namer
-                    to the world's best <em>gukhor</em> —
-                    may you get everything you deserve.
-                    And you deserve the entire galaxy. ✨
-                </p>
-
-            </div>
-
-            <!-- Replay button -->
-            <button
-                class="btn-replay ai"
-                id="btnReplay"
-                type="button"
-            >
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    width="18"
-                    height="18"
-                    aria-hidden="true"
-                >
-                    <polyline points="1 4 1 10 7 10"></polyline>
-                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
-                </svg>
-
-                Replay
-            </button>
-
-        </div>
-    </section>
-
-
-    <!-- ========== JAVASCRIPT ========== -->
-    <script src="script.js" defer></script>
 
 </body>
-                    </html>
-                    
+</html>
