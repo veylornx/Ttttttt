@@ -1,402 +1,301 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120b20">
+  <meta name="description" content="A special birthday surprise made with love for Tashfin Mira.">
+  <title>Happy Birthday Tashfin Mira 🎂</title>
 
-  <meta
-    name="description"
-    content="A special birthday surprise made with love for Tashfin Mira."
-  >
-  <meta name="theme-color" content="#100b18">
-
-  <title>Happy Birthday, Tashfin Mira! 🎂</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- Script runs after HTML parsing -->
   <script src="script.js" defer></script>
 </head>
 
 <body>
 
-  <!-- =====================================
-       PRELOADER
-       ===================================== -->
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader-content">
+      <div class="loader-cake">🎂</div>
+      <h2>Preparing Your Surprise</h2>
+      <p>Something special is waiting for you ✨</p>
 
-  <div id="preloader" aria-label="Loading birthday surprise">
-    <h1 class="loader-title">A Little Surprise 💖</h1>
+      <div class="loader-bar">
+        <div id="preFill"></div>
+      </div>
 
-    <div class="loader-bar">
-      <div id="preFill"></div>
+      <p id="prePct">0%</p>
     </div>
-
-    <p id="prePct">0%</p>
   </div>
 
-
-  <!-- =====================================
-       BACKGROUND PARTICLES
-       ===================================== -->
-
-  <canvas id="particlesBg" aria-hidden="true"></canvas>
-
-
-  <!-- =====================================
-       BACKGROUND MUSIC
-       Replace the source URL with a valid
-       audio file if this one does not work.
-       ===================================== -->
-
-  <audio id="bgMusic" loop preload="none">
-    <source
-      src="https://files.catbox.moe/iawcgz.mp4"
-      type="audio/mp4"
-    >
+  <!-- BACKGROUND MUSIC -->
+  <audio id="bgMusic" loop preload="auto" playsinline>
+    <source src="https://files.catbox.moe/iawcgz.mp4" type="audio/mp4">
+    Your browser does not support audio playback.
   </audio>
 
+  <!-- MUSIC CONTROL -->
   <button
     id="musicToggle"
-    class="mt-off"
     type="button"
-    aria-label="Play background music"
+    aria-label="Turn background music on or off"
     aria-pressed="false"
-    title="Toggle music"
-  ></button>
+  >
+    🎵 Music On/Off
+  </button>
 
+  <!-- BACKGROUND CANVASES -->
+  <canvas id="particlesBg" aria-hidden="true"></canvas>
+  <canvas id="confettiCvs" aria-hidden="true"></canvas>
+  <canvas id="fwCvs" aria-hidden="true"></canvas>
 
-  <!-- =====================================
-       PAGE NAVIGATION
-       ===================================== -->
-
+  <!-- PAGE NAVIGATION DOTS -->
   <nav class="nav-dots" aria-label="Birthday pages">
-    <button class="nd active" type="button" data-index="0"
-      aria-label="Page 1: Welcome" aria-current="step"></button>
-
-    <button class="nd" type="button" data-index="1"
-      aria-label="Page 2: Memories"></button>
-
-    <button class="nd" type="button" data-index="2"
-      aria-label="Page 3: Birthday message"></button>
-
-    <button class="nd" type="button" data-index="3"
-      aria-label="Page 4: Fun memories"></button>
-
-    <button class="nd" type="button" data-index="4"
-      aria-label="Page 5: Final surprise"></button>
+    <button class="nd active" type="button" data-index="0" aria-label="Go to welcome page"></button>
+    <button class="nd" type="button" data-index="1" aria-label="Go to memories page"></button>
+    <button class="nd" type="button" data-index="2" aria-label="Go to message page"></button>
+    <button class="nd" type="button" data-index="3" aria-label="Go to fun page"></button>
+    <button class="nd" type="button" data-index="4" aria-label="Go to final surprise"></button>
   </nav>
 
+  <main id="birthdayWebsite">
 
-  <!-- =====================================
-       PAGE 1 — HERO
-       ===================================== -->
+    <!-- ================================= -->
+    <!-- PAGE 1: WELCOME -->
+    <!-- ================================= -->
+    <section id="secHero" class="active" aria-hidden="false">
+      <div class="hero-content">
 
-  <section id="secHero" class="active">
-    <div class="hero-decoration one" aria-hidden="true"></div>
-    <div class="hero-decoration two" aria-hidden="true"></div>
+        <p class="eyebrow">✨ A Little Surprise For You ✨</p>
 
-    <div class="sec-inner">
+        <h1>Happy Birthday</h1>
 
-      <span class="hero-kicker">
-        ✨ A Special Day For Someone Special ✨
-      </span>
+        <h2 class="birthday-name">Tashfin Mira</h2>
 
-      <p class="eyebrow">A little surprise made just for you</p>
-
-      <h1>
-        Happy Birthday
-        <span class="gradient-text">Tashfin Mira!</span>
-      </h1>
-
-      <p class="hero-subtitle">
-        Today is all about you, your smile, your happiness,
-        and all the beautiful memories waiting to be made. 💖
-      </p>
-
-      <p class="hero-nick">
-        To someone truly special 🎂
-      </p>
-
-      <button id="btnStart" class="btn" type="button">
-        Open Your Surprise 💌 →
-      </button>
-
-      <p class="small-note" style="margin-top: 22px;">
-        Made with love, just for you ✨
-      </p>
-
-    </div>
-  </section>
-
-
-  <!-- =====================================
-       PAGE 2 — MEMORIES
-       Replace image URLs with your own photos.
-       ===================================== -->
-
-  <section id="secMemories">
-    <div class="sec-inner">
-
-      <div class="section-heading">
-        <span class="eyebrow">Little Moments, Big Memories</span>
-
-        <h2>
-          Beautiful <span class="gradient-text">Memories 💗</span>
-        </h2>
-
-        <p>
-          Every memory has its own little story.
-          Here is to the moments that make life special.
-        </p>
-      </div>
-
-      <div class="memory-grid">
-
-        <article class="memory-card">
-          <img
-            src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=85"
-            alt="Friends enjoying a happy moment"
-            loading="lazy"
-          >
-
-          <p>
-            The little moments that turn into beautiful memories. ✨
-          </p>
-        </article>
-
-        <article class="memory-card">
-          <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=85"
-            alt="Friends spending time together"
-            loading="lazy"
-          >
-
-          <p>
-            Good vibes, laughter, and unforgettable days. 💕
-          </p>
-        </article>
-
-        <article class="memory-card">
-          <img
-            src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=85"
-            alt="A group sharing a happy experience"
-            loading="lazy"
-          >
-
-          <p>
-            May your life always be full of happiness and love. 🌸
-          </p>
-        </article>
-
-      </div>
-
-      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px;">
-        <button class="btn btn-outline" type="button" data-prev>
-          ← Previous
-        </button>
-
-        <button class="btn" type="button" data-next>
-          Next Page →
-        </button>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =====================================
-       PAGE 3 — PERSONAL MESSAGE
-       ===================================== -->
-
-  <section id="secMessage">
-    <div class="sec-inner">
-
-      <div class="section-heading">
-        <span class="eyebrow">A Message From The Heart</span>
-
-        <h2>
-          A Little <span class="gradient-text">Letter 💌</span>
-        </h2>
-
-        <p>
-          Some words for your special day.
-        </p>
-      </div>
-
-      <div class="message-card">
-
-        <p style="color:var(--pink-light);font-size:25px;">
-          🎂 💖 🎂
+        <p class="hero-description">
+          Today is your special day.
+          Get ready for a little surprise made just for you! 💖
         </p>
 
-        <p id="twText"
-          data-message="Happy Birthday, Mira! 🎂💖 Tui shobshomoy happy thakish. Tor shob shopno puron hok, ar tor life bhore uthuk hasi, bhalobasha ar beautiful memories diye. Always keep smiling and never stop being the wonderful person you are. Wishing you a beautiful year ahead! ✨">
+        <div class="cake" aria-hidden="true">🎂</div>
+
+        <p class="hero-subtitle">
+          A day full of smiles, happiness and beautiful memories.
         </p>
 
-        <p id="msgSign">
-          With lots of love 💗
+        <button id="btnStart" type="button">
+          Open Your Surprise 💝
+        </button>
+
+      </div>
+    </section>
+
+    <!-- ================================= -->
+    <!-- PAGE 2: MEMORIES -->
+    <!-- ================================= -->
+    <section id="secMemories" aria-hidden="true">
+      <div class="page-content">
+
+        <p class="eyebrow">💗 Made With Love</p>
+
+        <h2>Little Moments, Big Smiles</h2>
+
+        <p class="section-description">
+          A few little wishes to make your birthday even more special.
+        </p>
+
+        <div class="memory-grid">
+
+          <article class="memory-card">
+            <div class="memory-emoji" aria-hidden="true">🌸</div>
+            <h3>Stay Beautiful</h3>
+            <p>
+              Keep smiling and spreading happiness wherever you go.
+              Your smile can brighten someone's day.
+            </p>
+          </article>
+
+          <article class="memory-card">
+            <div class="memory-emoji" aria-hidden="true">🌟</div>
+            <h3>Dream Big</h3>
+            <p>
+              May your dreams grow bigger, your confidence grow stronger,
+              and your future become brighter.
+            </p>
+          </article>
+
+          <article class="memory-card">
+            <div class="memory-emoji" aria-hidden="true">🎀</div>
+            <h3>Stay Special</h3>
+            <p>
+              Never forget that you are unique.
+              Keep being yourself and enjoy every little moment.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="page-buttons">
+          <button type="button" data-prev>
+            ← Previous
+          </button>
+
+          <button type="button" data-next>
+            Next →
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================= -->
+    <!-- PAGE 3: BIRTHDAY MESSAGE -->
+    <!-- ================================= -->
+    <section id="secMessage" aria-hidden="true">
+      <div class="page-content message-card">
+
+        <p class="eyebrow">💌 A Message From The Heart</p>
+
+        <h2>Dear Tashfin Mira</h2>
+
+        <div class="message-decoration" aria-hidden="true">
+          💖 ✨ 💖
+        </div>
+
+        <p
+          id="twText"
+          data-message="Happy Birthday, Tashfin Mira! 🎂 May your life be filled with happiness, love, laughter, and beautiful memories. May every new day bring you a reason to smile. May your dreams come true, and may you always find reasons to be proud of yourself. Keep shining, keep smiling, and enjoy every moment of your special day. Wishing you a wonderful birthday and an amazing year ahead! 💖✨"
+          aria-live="polite"
+        ></p>
+
+        <h3 id="msgSign">With lots of wishes 💕</h3>
+
+        <div class="page-buttons">
+          <button type="button" data-prev>
+            ← Previous
+          </button>
+
+          <button type="button" data-next>
+            Next →
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================= -->
+    <!-- PAGE 4: BIRTHDAY FUN -->
+    <!-- ================================= -->
+    <section id="secFun" aria-hidden="true">
+      <div class="page-content">
+
+        <p class="eyebrow">😜 Time For Some Birthday Fun</p>
+
+        <h2>Today's Birthday Rules!</h2>
+
+        <p class="section-description">
+          Since it's your birthday, here are today's official rules.
+        </p>
+
+        <div class="roast-grid">
+
+          <article class="roast-card">
+            <div class="memory-emoji" aria-hidden="true">🍰</div>
+            <h3>Eat More Cake</h3>
+            <p>
+              Today is the perfect excuse to enjoy your favourite cake!
+            </p>
+          </article>
+
+          <article class="roast-card">
+            <div class="memory-emoji" aria-hidden="true">👑</div>
+            <h3>Be The Queen</h3>
+            <p>
+              Today, you deserve extra smiles, love and birthday wishes.
+            </p>
+          </article>
+
+          <article class="roast-card">
+            <div class="memory-emoji" aria-hidden="true">📸</div>
+            <h3>Take Selfies</h3>
+            <p>
+              Capture the little moments and keep the memories forever.
+            </p>
+          </article>
+
+          <article class="roast-card">
+            <div class="memory-emoji" aria-hidden="true">😂</div>
+            <h3>Laugh A Lot</h3>
+            <p>
+              Forget the stress for a while. Today is about happiness!
+            </p>
+          </article>
+
+        </div>
+
+        <p class="fun-footer">
+          One more surprise is waiting for you... 🎁
+        </p>
+
+        <div class="page-buttons">
+          <button type="button" data-prev>
+            ← Previous
+          </button>
+
+          <button type="button" data-next>
+            Final Surprise 🎁
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================= -->
+    <!-- PAGE 5: FINAL SURPRISE -->
+    <!-- ================================= -->
+    <section id="secFinale" aria-hidden="true">
+      <div class="page-content finale-content">
+
+        <p class="eyebrow">🎆 Your Special Moment 🎆</p>
+
+        <div class="finale-cake" aria-hidden="true">🎂</div>
+
+        <h1>Happy Birthday!</h1>
+
+        <h2 class="birthday-name">Tashfin Mira 💖</h2>
+
+        <div class="finale-decoration" aria-hidden="true">
+          🎉 🎈 🎉
+        </div>
+
+        <p class="finale-message">
+          May your day sparkle with joy, your heart be filled with
+          happiness, and your year overflow with beautiful moments.
+          Keep smiling and keep shining! ✨
+        </p>
+
+        <p class="final-wish">
+          You deserve a wonderful day and a beautiful year ahead. 💕
+        </p>
+
+        <div class="finale-buttons">
+          <button id="btnReplay" type="button">
+            ↻ Replay Surprise
+          </button>
+
+          <button type="button" data-prev>
+            ← Previous
+          </button>
+        </div>
+
+        <p class="footer-note">
+          Made with 💖 for Tashfin Mira
         </p>
 
       </div>
+    </section>
 
-      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px;">
-        <button class="btn btn-outline" type="button" data-prev>
-          ← Previous
-        </button>
-
-        <button class="btn" type="button" data-next>
-          Next Page →
-        </button>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =====================================
-       PAGE 4 — FUN / ROAST
-       ===================================== -->
-
-  <section id="secFun">
-
-    <!-- Confetti canvas -->
-    <canvas id="confettiCvs" aria-hidden="true"></canvas>
-
-    <div class="sec-inner">
-
-      <div class="section-heading">
-        <span class="eyebrow">Time For Some Fun 😂</span>
-
-        <h2>
-          Birthday <span class="gradient-text">Roast Zone 🔥</span>
-        </h2>
-
-        <p>
-          Birthday te ektu moja toh banta hai! 😜
-        </p>
-      </div>
-
-      <div class="roast-grid">
-
-        <article class="roast-card">
-          <span class="emoji" aria-hidden="true">📱😂</span>
-
-          <h3>Reels Queen</h3>
-
-          <p>
-            Tui to sharadin reels e dekhos, kono to kaj nai ar tui
-            original! Bolo, kon course korsos? 😤😂
-          </p>
-        </article>
-
-        <article class="roast-card">
-          <span class="emoji" aria-hidden="true">🎂😎</span>
-
-          <h3>Birthday Special</h3>
-
-          <p>
-            Ajke tor birthday, tai ajker jonno shob dosh maaf.
-            Kal theke abar roast shuru! 🤣
-          </p>
-        </article>
-
-        <article class="roast-card">
-          <span class="emoji" aria-hidden="true">💖🥹</span>
-
-          <h3>Best Friend Energy</h3>
-
-          <p>
-            Tui amader shobcheye valo bondhu.
-            Tor moto pagli friend thakle life boring hoy na! 💗
-          </p>
-        </article>
-
-        <article class="roast-card">
-          <span class="emoji" aria-hidden="true">👑✨</span>
-
-          <h3>Queen For Today</h3>
-
-          <p>
-            Ajke tui queen, cake tor, party tor,
-            ar bill ta onno keu dik! 😂🎉
-          </p>
-        </article>
-
-      </div>
-
-      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px;">
-        <button class="btn btn-outline" type="button" data-prev>
-          ← Previous
-        </button>
-
-        <button class="btn" type="button" data-next>
-          Final Surprise → 🎁
-        </button>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =====================================
-       PAGE 5 — FINALE
-       ===================================== -->
-
-  <section id="secFinale">
-
-    <!-- Fireworks canvas -->
-    <canvas id="fwCvs" aria-hidden="true"></canvas>
-
-    <div class="sec-inner">
-
-      <span class="eyebrow">One Last Thing...</span>
-
-      <img
-        class="finale-image"
-        src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=700&q=85"
-        alt="Birthday celebration with balloons"
-        loading="lazy"
-      >
-
-      <h1>
-        Happy Birthday,
-        <span class="gradient-text">Mira! 🎂</span>
-      </h1>
-
-      <p>
-        May this new year of your life bring you endless smiles,
-        wonderful opportunities, beautiful memories, and all the
-        happiness you deserve. Keep shining and keep being you. 💖
-      </p>
-
-      <p style="color:var(--pink-light);font-family:var(--font-heading);font-size:clamp(20px,4vw,29px);">
-        Stay happy. Stay blessed. Stay amazing. ✨
-      </p>
-
-      <button id="btnReplay" class="btn" type="button">
-        ↻ Replay Surprise
-      </button>
-
-      <div style="margin-top:22px;">
-        <button class="btn btn-outline" type="button" data-prev>
-          ← Previous Page
-        </button>
-      </div>
-
-    </div>
-  </section>
-
+  </main>
 
 </body>
 </html>
