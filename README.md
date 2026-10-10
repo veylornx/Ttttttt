@@ -1,4 +1,4 @@
-# 🎂 Birthday Surprise · Wakilur Rahman Fahim
+# 🎂 Birthday Surprise · Tashfin Mira
 
 > A multi‑page, fully responsive birthday website with emotional storytelling, friendly roasts, and cinematic animations – built with pure HTML, CSS, and JavaScript.
 
