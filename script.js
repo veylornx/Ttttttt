@@ -220,7 +220,7 @@
      TYPEWRITER
      ================================================================ */
   var twMsg =
-    "My Dearest Fahim,\n\n" +
+    "My Dearest Mira,\n\n" +
     "There are friends we meet by chance, and then there are souls we recognize from another lifetime. " +
     "You are my harbor in storms, my loudest cheerleader, and the one who knows my silence. " +
     "Today, on your birthday, I don\u2019t just celebrate another year \u2014 I celebrate the miracle of your existence. " +
